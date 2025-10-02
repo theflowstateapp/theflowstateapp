@@ -401,7 +401,7 @@ function Landing({ onGetStarted, onStartTour, onStartChatting }) {
                 🤖 AI‑Powered Life Assistant
               </Badge>
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              🤖 Talk to Your AI Life Assistant v2.0 🚀
+              🎉 YOUR NEW AI FLOWSTATE APP IS LIVE! 🎉
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-slate-600">
               Just chat naturally! Your AI assistant listens, understands, and automatically organizes everything — from daily habits to big goals. No complicated forms, no confusing buttons.

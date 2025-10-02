@@ -1,7 +1,7 @@
 {
   "name": "flowstate-app-starter",
   "private": true,
-  "version": "0.2.0",
+  "version": "1.0.0-FRESH-NEW-AI-APP",
   "type": "module",
   "scripts": {
     "dev": "vite",
