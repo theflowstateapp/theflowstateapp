@@ -1,0 +1,24 @@
+# Ignore everything old or unnecessary for AI assistant
+.github/
+backend/
+api/
+server/
+tests/
+test-results/
+playwright-report/
+lib/
+*app/
+data/
+scripts/
+playwright.config.*
+tests/
+
+# Keep only AI assistant essentials
+!src/
+!index.html
+!package.json
+!package-lock.json
+!vite.config.js
+!tailwind.config.js
+!postcss.config.js
+!vercel.json
