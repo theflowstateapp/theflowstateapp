@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:production",
+    "build": "NODE_ENV=production vite build",
     "preview": "vite preview",
     "build:production": "NODE_ENV=production vite build",
     "serve": "npx serve dist -s",
     "test": "echo '✓ App builds successfully' && echo '✓ All functionality tested'",
-    "vercel-build": "npm run build:production"
+    "vercel-build": "NODE_ENV=production vite build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
