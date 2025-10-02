@@ -401,7 +401,7 @@ function Landing({ onGetStarted, onStartTour, onStartChatting }) {
                 🤖 AI‑Powered Life Assistant
               </Badge>
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Talk to Your <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">AI Life Assistant</span>
+              🤖 Talk to Your AI Life Assistant v2.0 🚀
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-slate-600">
               Just chat naturally! Your AI assistant listens, understands, and automatically organizes everything — from daily habits to big goals. No complicated forms, no confusing buttons.
@@ -1486,7 +1486,7 @@ export default function App() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-emerald-500 shadow-lg">
                   <span className="text-lg font-bold text-white">Flow</span>
                 </div>
-                <span className="text-xl font-bold text-slate-900">FlowState</span>
+                <span className="text-xl font-bold text-slate-900">🚀 FlowState AI v2.0 DEPLOYED 🚀</span>
               </div>
               <p className="text-slate-600 mb-4 max-w-md">
                 Your AI Life Assistant that organizes everything automatically. Just chat naturally, and watch your life flow beautifully organized.
