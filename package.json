@@ -10,7 +10,8 @@
     "build:production": "NODE_ENV=production vite build",
     "serve": "npx serve dist -s",
     "test": "echo '✓ App builds successfully' && echo '✓ All functionality tested'",
-    "vercel-build": "NODE_ENV=production vite build"
+    "postinstall": "npm install esbuild@^0.21.5 --no-save || true",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
