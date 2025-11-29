@@ -10,7 +10,7 @@
     "build:production": "NODE_ENV=production vite build",
     "serve": "npx serve dist -s",
     "test": "echo '✓ App builds successfully' && echo '✓ All functionality tested'",
-    "postinstall": "npm install esbuild@^0.21.5 --no-save || true",
+    "postinstall": "node -e \"const fs=require('fs');const path=require('path');const esbuildPath=path.join(process.cwd(),'node_modules','esbuild');const vitePath=path.join(process.cwd(),'node_modules','vite','node_modules');if(fs.existsSync(esbuildPath)&&!fs.existsSync(path.join(vitePath,'esbuild'))){fs.mkdirSync(vitePath,{recursive:true});try{fs.symlinkSync(esbuildPath,path.join(vitePath,'esbuild'),'dir');}catch(e){}}\" || true",
     "vercel-build": "npm run build"
   },
   "dependencies": {
