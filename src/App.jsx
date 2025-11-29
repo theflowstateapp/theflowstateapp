@@ -759,7 +759,7 @@ function EmptyState() {
   );
 }
 
-function Dashboard({ aiProcessedData, setAiProcessedData }) {
+function Dashboard({ aiProcessedData, setAiProcessedData, setActive }) {
   const [date, setDate] = useState(todayISO());
   const [data, setData] = useState({});
   const [all, setAll] = useState({});
@@ -901,11 +901,11 @@ function Dashboard({ aiProcessedData, setAiProcessedData }) {
             <Card className="p-5">
               <h3 className="text-lg font-semibold text-slate-900">Quick Capture</h3>
               <p className="mt-2 text-sm text-slate-600">Type anything — tasks, ideas, notes.</p>
-            <QuickCapture onAdd={async (text) => {
-              const prev = data?.notes ? data.notes + "\\n" : "";
-              await saveDay({ notes: prev + "• " + text });
-            }} />
-          </Card>
+              <QuickCapture onAdd={async (text) => {
+                const prev = data?.notes ? data.notes + "\\n" : "";
+                await saveDay({ notes: prev + "• " + text });
+              }} />
+            </Card>
 
           <AIChatbot onProcess={async (processedData) => {
             // Save AI processed data to current day
@@ -1283,6 +1283,217 @@ async function simulateAIProcessing(text) {
   };
 }
 
+// ---------- FlowState Dashboard ----------
+function FlowStateDashboard() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('flowstate-theme');
+      return saved || 'light';
+    }
+    return 'light';
+  });
+  const [metrics, setMetrics] = useState(() => {
+    const defaults = {
+      weight: 79.4,
+      bodyFat: 28,
+      steps: 0,
+      stepsGoal: 15000,
+      calories: 0,
+      caloriesGoal: 1600,
+      water: 0,
+      waterGoal: 2.5
+    };
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('flowstate-metrics');
+        return saved ? JSON.parse(saved) : defaults;
+      } catch {
+        return defaults;
+      }
+    }
+    return defaults;
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('flowstate-theme', theme);
+    }
+  }, [theme]);
+
+  const updateMetric = (key, value) => {
+    const updated = { ...metrics, [key]: parseFloat(value) || 0 };
+    setMetrics(updated);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('flowstate-metrics', JSON.stringify(updated));
+    }
+  };
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  const isDark = theme === 'dark';
+  const bgClass = isDark ? 'bg-slate-900' : 'bg-slate-50';
+  const textClass = isDark ? 'text-slate-100' : 'text-slate-900';
+  const textMutedClass = isDark ? 'text-slate-400' : 'text-slate-600';
+  const cardBgClass = isDark ? 'bg-slate-800 border-slate-700' : 'bg-white/80 border-slate-200';
+  const inputClass = isDark 
+    ? 'bg-slate-700 border-slate-600 text-slate-100 placeholder-slate-400 focus:border-slate-500 focus:ring-slate-600' 
+    : 'bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-slate-400 focus:ring-slate-100';
+
+  return (
+    <div className={`min-h-screen transition-colors ${bgClass}`}>
+      <Container className="py-8">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+            <div>
+              <h1 className={`text-3xl font-bold ${textClass}`}>FlowState</h1>
+              <h2 className={`text-2xl font-semibold mt-2 ${textClass}`}>FlowState Dashboard</h2>
+              <p className={`mt-1 ${textMutedClass}`}>Central control panel for my life.</p>
+            </div>
+            <button
+              onClick={toggleTheme}
+              className={`self-start sm:self-auto rounded-xl px-4 py-2 text-sm font-semibold shadow-sm transition hover:shadow ${isDark ? 'bg-slate-700 text-slate-100 hover:bg-slate-600' : 'bg-slate-200 text-slate-900 hover:bg-slate-300'}`}
+            >
+              {isDark ? '☀️ Light' : '🌙 Dark'}
+            </button>
+          </div>
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card 1 - Body & Fitness */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Body & Fitness</h3>
+            <div className="space-y-4">
+              <div>
+                <div className={`text-sm ${textMutedClass}`}>Weight</div>
+                <div className={`text-xl font-semibold ${textClass}`}>{metrics.weight} kg</div>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={metrics.weight}
+                  onChange={(e) => updateMetric('weight', e.target.value)}
+                  placeholder="Weight"
+                  className={`mt-2 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 ${inputClass}`}
+                />
+              </div>
+              <div>
+                <div className={`text-sm ${textMutedClass}`}>Approx Body Fat</div>
+                <div className={`text-xl font-semibold ${textClass}`}>{metrics.bodyFat}%</div>
+              </div>
+              <div>
+                <div className={`text-sm ${textMutedClass}`}>Steps Today</div>
+                <div className={`text-xl font-semibold ${textClass}`}>{metrics.steps} / {metrics.stepsGoal.toLocaleString()}</div>
+                <input
+                  type="number"
+                  value={metrics.steps}
+                  onChange={(e) => updateMetric('steps', e.target.value)}
+                  placeholder="Steps"
+                  className={`mt-2 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 ${inputClass}`}
+                />
+              </div>
+              <div>
+                <div className={`text-sm ${textMutedClass}`}>Calories Today</div>
+                <div className={`text-xl font-semibold ${textClass}`}>{metrics.calories} / {metrics.caloriesGoal}</div>
+                <input
+                  type="number"
+                  value={metrics.calories}
+                  onChange={(e) => updateMetric('calories', e.target.value)}
+                  placeholder="Calories"
+                  className={`mt-2 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 ${inputClass}`}
+                />
+              </div>
+              <div>
+                <div className={`text-sm ${textMutedClass}`}>Water</div>
+                <div className={`text-xl font-semibold ${textClass}`}>{metrics.water} / {metrics.waterGoal}L</div>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={metrics.water}
+                  onChange={(e) => updateMetric('water', e.target.value)}
+                  placeholder="Water (L)"
+                  className={`mt-2 w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 ${inputClass}`}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2 - Daily Routine */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Daily Routine</h3>
+            <ul className={`space-y-2 text-sm ${textClass}`}>
+              <li>7:00 AM – Wake</li>
+              <li>7:30 AM – Walk</li>
+              <li>8:30 AM – Breakfast</li>
+              <li>9:00–12:00 – Focus Work</li>
+              <li>4:00 PM – Workout</li>
+              <li>7:00 PM – Dinner</li>
+              <li>11:00 PM – Sleep</li>
+            </ul>
+          </div>
+
+          {/* Card 3 - Life Admin */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Life Admin</h3>
+            <ul className={`space-y-2 text-sm ${textClass}`}>
+              <li>• Renew Driving License</li>
+              <li>• Pay Society Bill</li>
+              <li>• Deep Cleaning</li>
+              <li>• Pest Control</li>
+              <li>• Buy Sunglasses</li>
+            </ul>
+          </div>
+
+          {/* Card 4 - Habits */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Habits</h3>
+            <ul className={`space-y-2 text-sm ${textClass}`}>
+              <li>• No Alcohol</li>
+              <li>• 15k Steps</li>
+              <li>• High-Protein Meals</li>
+              <li>• Sleep by 11 PM</li>
+              <li>• 20-min Declutter</li>
+            </ul>
+          </div>
+
+          {/* Card 5 - Goals */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Goals</h3>
+            <ul className={`space-y-2 text-sm ${textClass}`}>
+              <li>• Bali Body by Dec 24</li>
+              <li>• 6-Pack by Birthday</li>
+              <li>• Life Clean-Up</li>
+            </ul>
+          </div>
+
+          {/* Card 6 - Cheat Day Calendar */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Cheat Day Calendar</h3>
+            <ul className={`space-y-2 text-sm ${textClass}`}>
+              <li>• Dec 30 – Lunch</li>
+              <li>• Dec 30 – Dinner + Drinks</li>
+              <li>• Jan 6 – Dinner</li>
+              <li>• Jan 13 – Dinner</li>
+              <li>• Jan 20 – Lunch/Dinner</li>
+            </ul>
+          </div>
+
+          {/* Card 7 - Weight Progress */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Weight Progress</h3>
+            <p className={`text-sm ${textMutedClass} mb-4`}>Weight graph coming soon.</p>
+            <ul className={`space-y-1 text-sm ${textClass}`}>
+              <li>Dec 1 – 79.4 kg</li>
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
+}
+
 // ---------- App Shell ----------
 function Nav({ active, setActive }) {
   return (
@@ -1303,6 +1514,7 @@ function Nav({ active, setActive }) {
           {[
             { key: "landing", label: "Home", tooltip: "Learn more about your AI assistant" },
             { key: "dashboard", label: "Your Life 💎", tooltip: "See everything organized automatically" },
+            { key: "lifeos", label: "Dashboard 📊", tooltip: "Personal FlowState Dashboard" },
             { key: "ai-assistant", label: "Chat Now 🤖", tooltip: "Start talking to your AI assistant" },
           ].map((t) => (
             <Tooltip key={t.key} content={t.tooltip} position="bottom">
@@ -1419,6 +1631,11 @@ export default function App() {
   const [isTouring, setIsTouring] = useState(false);
   const [tourStep, setTourStep] = useState(0);
   
+  // Debug: Log when app renders
+  useEffect(() => {
+    console.log('FlowState App loaded, active route:', active);
+  }, [active]);
+  
   const startTour = () => {
     setIsTouring(true);
     setTourStep(0);
@@ -1464,7 +1681,9 @@ export default function App() {
           onStartChatting={startChatting}
         />
       ) : active === "dashboard" ? (
-        <Dashboard aiProcessedData={aiProcessedData} setAiProcessedData={setAiProcessedData} />
+        <Dashboard aiProcessedData={aiProcessedData} setAiProcessedData={setAiProcessedData} setActive={setActive} />
+      ) : active === "lifeos" ? (
+        <FlowStateDashboard />
       ) : (
         <AIAssistant />
       )}
