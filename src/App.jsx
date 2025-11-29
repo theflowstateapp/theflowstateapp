@@ -1500,7 +1500,28 @@ function FlowStateDashboard() {
             </ul>
           </div>
 
-          {/* Card 7 - Life Purpose & Vision Board */}
+          {/* Card 7 - Future Self Manifesto */}
+          <div className={`rounded-2xl border-l-6 shadow-sm backdrop-blur p-6 ${isDark ? 'bg-gradient-to-br from-slate-800 to-slate-700 border-slate-600' : 'bg-gradient-to-br from-slate-50 to-slate-100 border-slate-400'}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>📜 Future Self Manifesto – 2025</h3>
+            <p className={`mt-2 mb-4 font-semibold ${textClass}`}>
+              I am the architect of my life. I design my identity daily.
+            </p>
+            <ul className={`space-y-2 text-sm ${textClass} list-disc pl-5`} style={{lineHeight: '1.6'}}>
+              <li><strong>I honor my body</strong> with discipline, strength, and consistency.</li>
+              <li><strong>I eliminate chaos</strong> and choose clarity, order, and focus.</li>
+              <li><strong>I build FlowState</strong> not just as a product but as a philosophy for myself and others.</li>
+              <li><strong>I expand my world</strong> through travel, adventure, connection, and deep friendships.</li>
+              <li><strong>I choose excellence</strong> over comfort, and growth over avoidance.</li>
+              <li><strong>I protect my peace</strong> and surround myself with aligned people.</li>
+              <li><strong>I am becoming a high-value man</strong> physically, mentally, socially, and financially.</li>
+              <li><strong>I live intentionally</strong> with purpose, passion, and direction.</li>
+            </ul>
+            <p className={`mt-5 text-center italic font-semibold ${textClass}`}>
+              "My future self is watching. I will make him proud."
+            </p>
+          </div>
+
+          {/* Card 8 - Life Purpose & Vision Board */}
           <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
             <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🌟 Life Purpose & Vision Board</h3>
             
