@@ -1343,13 +1343,33 @@ function FlowStateDashboard() {
 
   return (
     <div className={`min-h-screen transition-colors ${bgClass}`}>
+      {/* Hero Section */}
+      <div className={`relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' : 'bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900'} text-white border-b-4 ${isDark ? 'border-slate-700' : 'border-slate-600'}`}>
+        <div className="relative z-10 py-10 px-4 text-center animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 tracking-tight" style={{letterSpacing: '1px'}}>
+            Become the Strongest Version of Yourself
+          </h1>
+          <p className="text-base sm:text-lg opacity-90">
+            Designed to align your mind, body, purpose, and lifestyle.
+          </p>
+        </div>
+        <style>{`
+          @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fade-in {
+            animation: fade-in 2s ease-in-out;
+          }
+        `}</style>
+      </div>
+
       <Container className="py-8">
-        {/* Header */}
+        {/* Header with Theme Toggle */}
         <div className="mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className={`text-3xl font-bold ${textClass}`}>FlowState</h1>
-              <h2 className={`text-2xl font-semibold mt-2 ${textClass}`}>FlowState Dashboard</h2>
+              <h2 className={`text-2xl font-semibold ${textClass}`}>Your LifeOS Dashboard</h2>
               <p className={`mt-1 ${textMutedClass}`}>Central control panel for my life.</p>
             </div>
             <button
