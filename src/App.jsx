@@ -1634,6 +1634,7 @@ export default function App() {
   // Debug: Log when app renders
   useEffect(() => {
     console.log('FlowState App loaded, active route:', active);
+    console.log('App component rendered successfully');
   }, [active]);
   
   const startTour = () => {
