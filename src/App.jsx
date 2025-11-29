@@ -1521,6 +1521,24 @@ function FlowStateDashboard() {
             </p>
           </div>
 
+          {/* Card 8 - Core Identity Traits */}
+          <div className={`rounded-2xl border-l-6 shadow-sm backdrop-blur p-6 ${isDark ? 'bg-slate-800 border-slate-600' : 'bg-white border-slate-800'}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🧠 Core Identity Traits</h3>
+            <p className={`mt-2 mb-4 font-semibold ${textClass}`}>
+              These are the traits I embody daily:
+            </p>
+            <ul className={`space-y-2 text-sm ${textClass} list-disc pl-5`} style={{lineHeight: '1.6'}}>
+              <li><strong>I am Disciplined</strong> — I show up, even when I don't feel like it.</li>
+              <li><strong>I am Focused</strong> — I give my energy only to what moves my life forward.</li>
+              <li><strong>I am Strong</strong> — physically, mentally, emotionally.</li>
+              <li><strong>I am Intentional</strong> — every action has a purpose.</li>
+              <li><strong>I am Resilient</strong> — setbacks sharpen me.</li>
+              <li><strong>I am Evolving</strong> — every day I upgrade myself.</li>
+              <li><strong>I am High-Value</strong> — I operate with standards, clarity, and self-respect.</li>
+              <li><strong>I am the FlowState</strong> — calm mind, structured life, powerful action.</li>
+            </ul>
+          </div>
+
           {/* Card 8 - Life Purpose & Vision Board */}
           <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
             <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🌟 Life Purpose & Vision Board</h3>
