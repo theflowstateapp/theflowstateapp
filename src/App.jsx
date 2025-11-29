@@ -1560,6 +1560,24 @@ function FlowStateDashboard() {
             </p>
           </div>
 
+          {/* Card 10 - Leveling Up Map */}
+          <div className={`rounded-2xl border-l-6 shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${isDark ? 'bg-gradient-to-br from-slate-800 to-slate-700 border-slate-500' : 'bg-gradient-to-br from-white to-slate-100 border-slate-500'}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>📈 Leveling Up Map (Age 41–45)</h3>
+            <p className={`mt-2 mb-4 font-semibold ${textClass}`}>
+              A clear roadmap of my evolution over the next 4 years:
+            </p>
+            <ul className={`space-y-2 text-sm ${textClass} list-disc pl-5`} style={{lineHeight: '1.7'}}>
+              <li><strong>Age 41 – Foundation:</strong> Aggressive physical transformation, FlowState prototype, clean routines, stable discipline, rebuilding social foundation.</li>
+              <li><strong>Age 42 – Expansion:</strong> FlowState App public launch, early users, travel to 3–5 countries, expanding social circle, building financial stability.</li>
+              <li><strong>Age 43 – Mastery:</strong> Best physique of my life, consistent income, strong emotional balance, multiple friendships, high-value dating life.</li>
+              <li><strong>Age 44 – Lifestyle:</strong> Freedom to live and work from anywhere, polished personal brand, deeper relationships, strong financial cushion.</li>
+              <li><strong>Age 45 – Legacy:</strong> FlowState as a known transformation system, hundreds+ users, a powerful identity, a life aligned with purpose and excellence.</li>
+            </ul>
+            <p className={`mt-4 text-center italic font-semibold ${textClass}`}>
+              "I evolve every year — intentionally, powerfully, and with purpose."
+            </p>
+          </div>
+
           {/* Card 8 - Life Purpose & Vision Board */}
           <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
             <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🌟 Life Purpose & Vision Board</h3>
