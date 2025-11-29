@@ -1480,7 +1480,62 @@ function FlowStateDashboard() {
             </ul>
           </div>
 
-          {/* Card 7 - Weight Progress */}
+          {/* Card 7 - Life Purpose & Vision Board */}
+          <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🌟 Life Purpose & Vision Board</h3>
+            
+            <div className="mb-4">
+              <p className={`font-semibold mb-2 ${textClass}`}>Who I Am Becoming:</p>
+              <ul className={`space-y-1 text-sm ${textClass} list-disc pl-5`}>
+                <li>Disciplined, strong, lean, confident</li>
+                <li>Builder of the FlowState App</li>
+                <li>Living a life of adventure, travel, and connection</li>
+                <li>Focused, organized, high-value</li>
+              </ul>
+            </div>
+
+            <div className="mb-4">
+              <p className={`font-semibold mb-2 ${textClass}`}>Vision Board:</p>
+              <div className="flex gap-2 flex-wrap">
+                <img 
+                  src="https://images.unsplash.com/photo-1598971639058-6ec1e2bb3da5?w=200&h=200&fit=crop" 
+                  alt="Fit Body" 
+                  className="w-24 h-24 object-cover rounded-lg border border-slate-300"
+                  loading="lazy"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200&h=200&fit=crop" 
+                  alt="Travel" 
+                  className="w-24 h-24 object-cover rounded-lg border border-slate-300"
+                  loading="lazy"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop" 
+                  alt="Friends" 
+                  className="w-24 h-24 object-cover rounded-lg border border-slate-300"
+                  loading="lazy"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=200&fit=crop" 
+                  alt="FlowState App" 
+                  className="w-24 h-24 object-cover rounded-lg border border-slate-300"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p className={`font-semibold mb-2 ${textClass}`}>Quotes:</p>
+              <ul className={`space-y-1 text-sm ${textClass} list-disc pl-5 italic`}>
+                <li>"Discipline is destiny."</li>
+                <li>"The man who moves mountains begins by carrying small stones."</li>
+                <li>"Your new life will cost your old one."</li>
+                <li>"Become someone your future self is proud of."</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Card 8 - Weight Progress */}
           <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
             <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>Weight Progress</h3>
             <p className={`text-sm ${textMutedClass} mb-4`}>Weight graph coming soon.</p>
