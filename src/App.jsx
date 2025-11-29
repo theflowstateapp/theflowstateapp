@@ -1539,6 +1539,27 @@ function FlowStateDashboard() {
             </ul>
           </div>
 
+          {/* Card 9 - Who I Am Becoming */}
+          <div className={`rounded-2xl border-l-6 shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${isDark ? 'bg-gradient-to-br from-slate-800 to-slate-700 border-slate-500' : 'bg-gradient-to-br from-slate-50 to-slate-100 border-slate-500'}`}>
+            <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🚀 Who I Am Becoming (2025–2026)</h3>
+            <p className={`mt-2 mb-4 font-semibold ${textClass}`}>
+              A clear narrative of my future identity:
+            </p>
+            <ul className={`space-y-2 text-sm ${textClass} list-disc pl-5`} style={{lineHeight: '1.65'}}>
+              <li><strong>The Physically Transformed Man:</strong> Lean, muscular, sharp jawline, clear skin, high stamina, unstoppable discipline.</li>
+              <li><strong>The Emotionally Grounded Man:</strong> Calm, centered, emotionally neutral, no overreacting, steady presence.</li>
+              <li><strong>The Socially Magnetic Man:</strong> More friends, better conversations, comfortable in any room, fun energy, high-value interactions.</li>
+              <li><strong>The Financially Confident Man:</strong> Stable income, FlowState App growing, predictable monthly revenue, ability to travel freely.</li>
+              <li><strong>The Purpose-Driven Builder:</strong> Using my systems mindset to help others upgrade their lives with the FlowState philosophy.</li>
+              <li><strong>The Lifestyle Upgraded Man:</strong> Travels often, lives clean, maintains a well-designed living space, invests in experiences.</li>
+              <li><strong>The Self-Respecting Man:</strong> High standards, healthy boundaries, strong personal identity, consistent habits.</li>
+              <li><strong>The 2.0 Version of Me:</strong> Clear-minded, well-presented, happy, confident, and fully aligned with his purpose.</li>
+            </ul>
+            <p className={`mt-5 text-center italic font-semibold ${textClass}`}>
+              "Every day I move closer to the man I know I can be."
+            </p>
+          </div>
+
           {/* Card 8 - Life Purpose & Vision Board */}
           <div className={`rounded-2xl border shadow-sm backdrop-blur p-6 sm:col-span-2 lg:col-span-3 ${cardBgClass}`}>
             <h3 className={`text-lg font-semibold mb-4 ${textClass}`}>🌟 Life Purpose & Vision Board</h3>
