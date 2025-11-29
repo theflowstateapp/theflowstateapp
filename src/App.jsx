@@ -1603,6 +1603,11 @@ function FlowStateDashboard() {
             </ul>
           </div>
         </div>
+
+        {/* Footer */}
+        <div className={`mt-12 text-center ${textMutedClass} text-sm py-6`}>
+          Your personal LifeOS – auto-updated daily with ChatGPT.
+        </div>
       </Container>
     </div>
   );
